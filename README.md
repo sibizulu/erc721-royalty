@@ -1,1 +1,1 @@
-# ERC721
+# ERC721 Royalty
