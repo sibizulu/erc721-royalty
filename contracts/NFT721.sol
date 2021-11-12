@@ -19,7 +19,10 @@ contract NFT721 is ERC721, Ownable, RoyaltiesV2Impl, AccessControlEnumerable {
 
     bytes4 private constant _INTERFACE_ID_ERC2981 = 0x2a55205a;
 
-    constructor() ERC721("Sample NFT", "SNFT") {}
+    constructor() ERC721("Sample NFT", "SNFT") {
+      _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+      _setupRole(MINTER_ROLE, msg.sender);
+    }
 
     function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
         require(_exists(tokenId), "Nfttoken: URI set of nonexistent token");
